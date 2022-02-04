@@ -1,0 +1,27 @@
+#head {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 50px;
+  text-align: center;
+}
+
+#keyboard {
+  padding: 350px, 0px;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+
+#keyboardrow {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto 8px;
+  gap: 15px;
+  height: 3.5em;
+  touch-action: manipulation;
+}
+
+.enterbutton,
+.deletebutton {
+  flex-grow: 1.5;
+}
