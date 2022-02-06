@@ -32,7 +32,8 @@ body {
   touch-action: manipulation;
 }
 
-.keyboardrow button {
+.keyboardrow button,
+#submitGuess {
   text-transform: uppercase;
   background: transparent;
   outline: none;
@@ -41,7 +42,8 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-.keyboardrow button:hover {
+.keyboardrow button:hover,
+#submitGuess:hover {
   background: #00000080;
   color: #ffffff;
 }
@@ -49,4 +51,32 @@ body {
 .enterbutton,
 .deletebutton {
   flex-grow: 1.5;
+}
+
+#hangmanArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding: 2em 0;
+}
+
+#answerSection {
+  display: flex;
+  gap: 0.4em;
+}
+
+.answerBox {
+  border-bottom: solid 1px #000000;
+  height: 1em;
+  width: 1em;
+}
+
+#hangmanDrawing {
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }

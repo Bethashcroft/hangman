@@ -13,43 +13,44 @@
       <h1>Hangman!</h1>
       <section id="hangmanArea">
         <section id="answerSection"></section>
-        <!-- Images -->
-        <input type="text" placeholder="Enter Your Answer..." />
+        <section id="hangmanDrawing"></section>
+        <section>
+          <input type="text" placeholder="Entire Word" id="guessedWord" />
+          <button type="button" id="submitGuess">Submit</button>
+        </section>
       </section>
       <article id="keyboard">
         <div class="keyboardrow">
-          <button data-key="q">q</button>
-          <button data-key="w">w</button>
-          <button data-key="e">e</button>
-          <button data-key="r">r</button>
-          <button data-key="t">t</button>
-          <button data-key="y">y</button>
-          <button data-key="u">u</button>
-          <button data-key="i">i</button>
-          <button data-key="o">o</button>
-          <button data-key="p">p</button>
+          <button type="button" class="keyboardButton" data-key="q">q</button>
+          <button type="button" class="keyboardButton" data-key="w">w</button>
+          <button type="button" class="keyboardButton" data-key="e">e</button>
+          <button type="button" class="keyboardButton" data-key="r">r</button>
+          <button type="button" class="keyboardButton" data-key="t">t</button>
+          <button type="button" class="keyboardButton" data-key="y">y</button>
+          <button type="button" class="keyboardButton" data-key="u">u</button>
+          <button type="button" class="keyboardButton" data-key="i">i</button>
+          <button type="button" class="keyboardButton" data-key="o">o</button>
+          <button type="button" class="keyboardButton" data-key="p">p</button>
         </div>
         <div class="keyboardrow">
-          <button data-key="a">a</button>
-          <button data-key="s">s</button>
-          <button data-key="d">d</button>
-          <button data-key="f">f</button>
-          <button data-key="g">g</button>
-          <button data-key="h">h</button>
-          <button data-key="j">j</button>
-          <button data-key="k">k</button>
-          <button data-key="l">l</button>
+          <button type="button" class="keyboardButton" data-key="a">a</button>
+          <button type="button" class="keyboardButton" data-key="s">s</button>
+          <button type="button" class="keyboardButton" data-key="d">d</button>
+          <button type="button" class="keyboardButton" data-key="f">f</button>
+          <button type="button" class="keyboardButton" data-key="g">g</button>
+          <button type="button" class="keyboardButton" data-key="h">h</button>
+          <button type="button" class="keyboardButton" data-key="j">j</button>
+          <button type="button" class="keyboardButton" data-key="k">k</button>
+          <button type="button" class="keyboardButton" data-key="l">l</button>
         </div>
         <div class="keyboardrow">
-          <button data-key="enter" class="enterbutton">Enter</button>
-          <button data-key="z">z</button>
-          <button data-key="x">x</button>
-          <button data-key="c">c</button>
-          <button data-key="v">v</button>
-          <button data-key="b">b</button>
-          <button data-key="n">n</button>
-          <button data-key="m">m</button>
-          <button data-key="del" class="deletebutton">Del</button>
+          <button type="button" class="keyboardButton" data-key="z">z</button>
+          <button type="button" class="keyboardButton" data-key="x">x</button>
+          <button type="button" class="keyboardButton" data-key="c">c</button>
+          <button type="button" class="keyboardButton" data-key="v">v</button>
+          <button type="button" class="keyboardButton" data-key="b">b</button>
+          <button type="button" class="keyboardButton" data-key="n">n</button>
+          <button type="button" class="keyboardButton" data-key="m">m</button>
         </div>
       </article>
     </article>
