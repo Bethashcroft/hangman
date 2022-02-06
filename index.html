@@ -5,48 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hangman</title>
     <link rel="stylesheet" href="hangman.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="main.js" type="module"></script>
   </head>
   <body>
-    <section>
-      <h1 id="head">Hangman!</h1>
-    </section>
-    <article id="keyboard">
-      <div class="keyboardrow">
-        <button data-key="q">q</button>
-        <button data-key="w">w</button>
-        <button data-key="e">e</button>
-        <button data-key="r">r</button>
-        <button data-key="t">t</button>
-        <button data-key="y">y</button>
-        <button data-key="u">u</button>
-        <button data-key="i">i</button>
-        <button data-key="o">o</button>
-        <button data-key="p">p</button>
-      </div>
-      <div class="keyboardrow">
-        <div class="space"></div>
-        <button data-key="a">a</button>
-        <button data-key="s">s</button>
-        <button data-key="d">d</button>
-        <button data-key="f">f</button>
-        <button data-key="g">g</button>
-        <button data-key="h">h</button>
-        <button data-key="j">j</button>
-        <button data-key="k">k</button>
-        <button data-key="l">l</button>
-        <div class="space"></div>
-      </div>
-      <div class="keyboardrow">
-        <button data-key="enter" class="enterbutton">Enter</button>
-        <button data-key="z">z</button>
-        <button data-key="x">x</button>
-        <button data-key="c">c</button>
-        <button data-key="v">v</button>
-        <button data-key="b">b</button>
-        <button data-key="n">n</button>
-        <button data-key="m">m</button>
-        <button data-key="del" class="deletebutton">Del</button>
-      </div>
+    <article class="container">
+      <h1>Hangman!</h1>
+      <section id="hangmanArea">
+        <section id="answerSection"></section>
+        <!-- Images -->
+        <input type="text" placeholder="Enter Your Answer..." />
+      </section>
+      <article id="keyboard">
+        <div class="keyboardrow">
+          <button data-key="q">q</button>
+          <button data-key="w">w</button>
+          <button data-key="e">e</button>
+          <button data-key="r">r</button>
+          <button data-key="t">t</button>
+          <button data-key="y">y</button>
+          <button data-key="u">u</button>
+          <button data-key="i">i</button>
+          <button data-key="o">o</button>
+          <button data-key="p">p</button>
+        </div>
+        <div class="keyboardrow">
+          <button data-key="a">a</button>
+          <button data-key="s">s</button>
+          <button data-key="d">d</button>
+          <button data-key="f">f</button>
+          <button data-key="g">g</button>
+          <button data-key="h">h</button>
+          <button data-key="j">j</button>
+          <button data-key="k">k</button>
+          <button data-key="l">l</button>
+        </div>
+        <div class="keyboardrow">
+          <button data-key="enter" class="enterbutton">Enter</button>
+          <button data-key="z">z</button>
+          <button data-key="x">x</button>
+          <button data-key="c">c</button>
+          <button data-key="v">v</button>
+          <button data-key="b">b</button>
+          <button data-key="n">n</button>
+          <button data-key="m">m</button>
+          <button data-key="del" class="deletebutton">Del</button>
+        </div>
+      </article>
     </article>
   </body>
 </html>
