@@ -28,10 +28,10 @@ $(document).ready(() => {
       // Word is not real, so get another one
       generateAnswer();
     } else {
-      console.log("word is real");
       // Set word
       answer = thisWord;
       console.log(answer.length, answer);
+      $("#answerSection").empty();
       for (let i = 0; i < answer.length; i++) {
         $("#answerSection").append("<section class='answerBox'></section>");
       }
@@ -39,6 +39,13 @@ $(document).ready(() => {
   };
 
   generateAnswer();
+
+  // Generates a new word, deletes images and enables the keyboard again
+  const resetGame = () => {
+    generateAnswer();
+    $("#hangmanDrawing").css("background-image", "");
+    $(`button`).removeAttr("disabled");
+  };
 
   const updateHangmanDrawing = () => {
     // Get the current background image
@@ -53,24 +60,35 @@ $(document).ready(() => {
       backgroundImageLength - 6
     );
     // if there is currently a stage (so a life has already been lost) and it is not already on the last one (game over)
-    if (stage && stage !== 11) {
+    if (stage && Number(stage) !== 10) {
       // set the background to the next stage Number(stage) is used because stage is a string to begin with so adding 1 to stage 1 becomes 11 not 2. (Typescript is really good btw)
       $("#hangmanDrawing").css(
         "background-image",
         `url('./images/stage${Number(stage) + 1}.svg')`
       );
     } else {
-      // if they have not lost any lives yet then set to stage 1
-      $("#hangmanDrawing").css(
-        "background-image",
-        "url('./images/stage1.svg')"
-      );
+      if (Number(stage) === 10) {
+        $("#hangmanDrawing").css(
+          "background-image",
+          `url('./images/stage11.svg')`
+        );
+        setTimeout(() => {
+          alert(`Game Over! You lose. The word was ${answer}`);
+        }, 400);
+      } else {
+        // if they have not lost any lives yet then set to stage 1
+        $("#hangmanDrawing").css(
+          "background-image",
+          "url('./images/stage1.svg')"
+        );
+      }
     }
   };
 
   $(".keyboardButton").on("click", (e) => {
     // Which letter is being clicked?
     const letterClicked = e.target.innerHTML;
+    const answerSection = $("#answerSection").children();
     // Check if this letter is in the word and what positions it is in
     // Split the answer into an array of letters
     const answerSplit = answer.split("");
@@ -80,7 +98,6 @@ $(document).ready(() => {
       answerSplit.forEach((letter, index) => {
         // Is the letter in the answer in this iteration the same as the one clicked by the user?
         if (letter === letterClicked) {
-          const answerSection = $("#answerSection").children();
           answerSection[index].innerHTML = letterClicked;
         }
       });
@@ -89,6 +106,26 @@ $(document).ready(() => {
     }
     // Letter has been used so make the keyboard key disabled
     $(`button[data-key=${letterClicked}]`).attr("disabled", "true");
+    // Check if all the letters have been found
+    // Obtain the elements from the answerSection (the original is an object, we just want the values which are the sections)
+    const answerElements = Object.values(answerSection);
+    // Initialise an empty array we can check how many letters have been found with
+    const answerSectionValues = [];
+    // loop through the children and if there is a letter, push it into the empty array
+    for (let i = 0; i < answer.length; i++) {
+      if (answerElements[i].innerHTML !== "") {
+        answerSectionValues.push(answerElements[i].innerHTML);
+      }
+    }
+    // if the empty array has as many letters in it as the answer has, win the game after 0.2seconds (so the letters can be shown in the answer sections to the user)
+    if (answerSectionValues.length === answer.length) {
+      setTimeout(() => {
+        alert("Congrats, your answer is correct!");
+      }, 200);
+      setTimeout(() => {
+        resetGame();
+      }, 400);
+    }
   });
 
   $("#submitGuess").on("click", () => {
@@ -123,13 +160,18 @@ $(document).ready(() => {
         return;
       }
       if (submitGuess === answer) {
-        alert("Congrats, your answer is correct!");
         const answerSplit = answer.split("");
         answerSplit.forEach((letter, index) => {
           // Is the letter in the answer in this iteration the same as the one clicked by the user?
           const answerSection = $("#answerSection").children();
           answerSection[index].innerHTML = letter;
         });
+        setTimeout(() => {
+          alert("Congrats, your answer is correct!");
+        }, 400);
+        setTimeout(() => {
+          resetGame();
+        }, 600);
       } else {
         alert("Incorrect guess! You lose a life.");
         updateHangmanDrawing();
