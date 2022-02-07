@@ -87,11 +87,13 @@ body {
 @media (max-width: 768px) {
   #answerSection {
     width: 100%;
+    justify-content: center;
   }
 }
 
 @media (min-width: 1440px) {
   #answerSection {
     width: 100%;
+    justify-content: center;
   }
 }
