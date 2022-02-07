@@ -48,11 +48,6 @@ body {
   color: #ffffff;
 }
 
-.enterbutton,
-.deletebutton {
-  flex-grow: 1.5;
-}
-
 #hangmanArea {
   display: flex;
   flex-direction: column;
@@ -87,4 +82,16 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
+}
+
+@media (max-width: 768px) {
+  #answerSection {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1440px) {
+  #answerSection {
+    width: 100%;
+  }
 }
