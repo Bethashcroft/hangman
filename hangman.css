@@ -82,6 +82,7 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
+  transition-delay: 0.2s;
 }
 
 @media (max-width: 768px) {

@@ -73,7 +73,7 @@ $(document).ready(() => {
           `url('./images/stage11.svg')`
         );
         setTimeout(() => {
-          alert(`Game Over! You lose. The word was ${answer}`);
+          alert(`Game Over! You lose. The word was ${answer}`), resetGame();
         }, 400);
       } else {
         // if they have not lost any lives yet then set to stage 1
