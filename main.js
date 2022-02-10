@@ -30,7 +30,6 @@ $(document).ready(() => {
     } else {
       // Set word
       answer = thisWord;
-      console.log(answer.length, answer);
       $("#answerSection").empty();
       for (let i = 0; i < answer.length; i++) {
         $("#answerSection").append("<section class='answerBox'></section>");
@@ -129,16 +128,21 @@ $(document).ready(() => {
     }
   });
 
+  // when the submit guess is clicked that is next to the guess word input box
   $("#submitGuess").on("click", () => {
     // Check if the value of the input box matches the answer
+    // Both the answer and the guess need to be in lower case so we never have a comparison of something such as Nathan and nathan (as they are not the same)
     const submitGuess = $("#guessedWord").val();
+
     if (submitGuess === "") {
       return;
     }
     // if value matches win game
-    if (submitGuess === answer) {
+    // Check both of the guess and answer as lowercase
+    if (submitGuess.toLowerCase() === answer.toLowerCase()) {
       alert("Congrats, your answer is correct!");
       resetGame();
+      $("#guessedWord").val("");
       const answerSplit = answer.split("");
       answerSplit.forEach((letter, index) => {
         // Is the letter in the answer in this iteration the same as the one clicked by the user?
@@ -161,7 +165,8 @@ $(document).ready(() => {
       if (submitGuess === "") {
         return;
       }
-      if (submitGuess === answer) {
+      // We need to make sure that they are lower case here too
+      if (submitGuess.toLowerCase() === answer.toLowerCase()) {
         const answerSplit = answer.split("");
         answerSplit.forEach((letter, index) => {
           // Is the letter in the answer in this iteration the same as the one clicked by the user?
