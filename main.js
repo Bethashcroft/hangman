@@ -44,7 +44,7 @@ $(document).ready(() => {
     generateAnswer();
     $("#hangmanDrawing").css("background-image", "");
     $(`button`).removeAttr("disabled");
-    $("guessedWord").val("");
+    $("#guessedWord").val("");
   };
 
   const updateHangmanDrawing = () => {
@@ -142,7 +142,6 @@ $(document).ready(() => {
     if (submitGuess.toLowerCase() === answer.toLowerCase()) {
       alert("Congrats, your answer is correct!");
       resetGame();
-      $("#guessedWord").val("");
       const answerSplit = answer.split("");
       answerSplit.forEach((letter, index) => {
         // Is the letter in the answer in this iteration the same as the one clicked by the user?
