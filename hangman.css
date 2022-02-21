@@ -90,11 +90,17 @@ body {
     width: 100%;
     justify-content: center;
   }
+  #hangmanDrawing {
+    transition-delay: 0.2s;
+  }
 }
 
 @media (min-width: 1440px) {
   #answerSection {
     width: 100%;
     justify-content: center;
+  }
+  #hangmanDrawing {
+    transition-delay: 0.2s;
   }
 }
